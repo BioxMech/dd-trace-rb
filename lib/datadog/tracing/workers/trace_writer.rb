@@ -41,7 +41,11 @@ module Datadog
         end
 
         def write_traces(traces)
+          # traceSegments
+          # traces.dup
+
           traces = process_traces(traces)
+          # ... True immutatable => computation
           flush_traces(traces)
         rescue StandardError => e
           Datadog.logger.error(
